@@ -30,9 +30,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--background);
+    background: var(--pri-background);
     -webkit-font-smoothing: antialiased;
-    color: var(--text);
+    color: var(--pri-text);
   }
 
   body, input, button, textarea {
