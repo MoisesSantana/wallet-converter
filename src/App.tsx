@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom"
-import Login from "./pages"
+import { Login } from "./pages"
 
 export const App = () => {
   return (
