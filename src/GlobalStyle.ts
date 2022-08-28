@@ -35,6 +35,14 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--text);
   }
 
+  body, input, button, textarea {
+    font-family: 'Michroma', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong {
+    text-shadow: 1px 1px 3px solid rgba(0, 0, 0, 0.8);
+  }
+
   button {
     cursor: pointer;
   }
