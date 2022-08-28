@@ -1,9 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Input } from "../"
 
 export const Form = () => {
   const [emailInput, setEmailInput] = useState("")
   const [passInput, setPassInput] = useState("")
+  const [btnDisabled, setBtnDisable] = useState(true)
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /\S+@\S+\.\S+/i
+    return emailRegex.test(email)
+  }
+
+  const validatePass = (pass: string) => pass.length >= 6
+
+  useEffect(() => {
+    const emailIsValid = validateEmail(emailInput)
+    const passIsValid = validatePass(passInput)
+    setBtnDisable(!emailIsValid || !passIsValid)
+  }, [emailInput, passInput])
 
   return (
     <form>
@@ -18,7 +32,12 @@ export const Form = () => {
         inputState={passInput}
         setInputState={setPassInput}
       />
-      <button type="submit">Sign In</button>
+      <button
+        type="submit"
+        disabled={btnDisabled}
+      >
+        Sign In
+      </button>
     </form>
   )
 }
