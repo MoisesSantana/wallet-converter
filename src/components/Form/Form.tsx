@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react"
-import { Input } from "../"
+import { useEffect, useState } from 'react'
+import { Input } from '../'
 
-export const Form = () => {
-  const [emailInput, setEmailInput] = useState("")
-  const [passInput, setPassInput] = useState("")
+export const Form = (): JSX.Element => {
+  const [emailInput, setEmailInput] = useState('')
+  const [passInput, setPassInput] = useState('')
   const [btnDisabled, setBtnDisable] = useState(true)
 
-  const validateEmail = (email: string) => {
+  const validateEmail = (email: string): boolean => {
     const emailRegex = /\S+@\S+\.\S+/i
     return emailRegex.test(email)
   }
 
-  const validatePass = (pass: string) => pass.length >= 6
+  const validatePass = (pass: string): boolean => pass.length >= 6
 
   useEffect(() => {
     const emailIsValid = validateEmail(emailInput)

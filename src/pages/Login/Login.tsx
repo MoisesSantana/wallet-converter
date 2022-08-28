@@ -1,7 +1,3 @@
-import { Form } from "../../components"
+import { Form } from '../../components'
 
-export const Login = () => {
-  return (
-    <Form />
-  )
-}
+export const Login = (): JSX.Element => <Form />

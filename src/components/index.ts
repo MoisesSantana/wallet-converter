@@ -1,5 +1,5 @@
-import { Form } from "./Form/Form"
-import { Input } from "./Input/Input"
+import { Form } from './Form/Form'
+import { Input } from './Input/Input'
 
 export {
   Form,

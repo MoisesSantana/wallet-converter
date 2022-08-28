@@ -1,15 +1,15 @@
-import { useState } from "react"
-import { InputProps } from "../@types"
+import { useState } from 'react'
+import { IInputProps } from '../@types'
 
 export const Input = ({
   name,
   inputState,
-  setInputState,
-}: InputProps) => {
-  const [passType, setPassType] = useState("password")
+  setInputState
+}: IInputProps): JSX.Element => {
+  const [passType, setPassType] = useState('password')
 
-  const handlePassType = () => {
-    const expectedType = passType === "password" ? "text" : "password"
+  const handlePassType = (): void => {
+    const expectedType = passType === 'password' ? 'text' : 'password'
     setPassType(expectedType)
   }
 
@@ -17,13 +17,13 @@ export const Input = ({
     <label htmlFor={name}>
         {name}
         <input
-          type={name === "Email" ? "text" : passType}
+          type={name === 'Email' ? 'text' : passType}
           name={name}
           id={name}
           value={inputState}
           onChange={({ target }) => setInputState(target.value)}
         />
-        {name === "Password" && (
+        {name === 'Password' && (
           <button
             type="button"
             onClick={() => handlePassType()}
