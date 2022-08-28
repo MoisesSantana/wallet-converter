@@ -28,7 +28,7 @@ export const Input = ({
             type="button"
             onClick={() => handlePassType()}
           >
-            show
+            {passType === 'password' ? 'view' : 'hidden'}
           </button>
         )}
       </label>
