@@ -7,11 +7,12 @@ import {
   INVALID_EMAIL,
   VALID_EMAIL,
   VALID_PASSWORD
-} from '../utils/constants'
+} from '../../utils/constants'
+import { MemoryRouter } from 'react-router-dom'
 
 describe('<Form /> | Integration', () => {
   beforeEach(() => {
-    render(<Form />)
+    render(<MemoryRouter><Form /></MemoryRouter>)
   })
 
   it('should display a form title', () => {
