@@ -10,5 +10,8 @@ export default defineConfig({
     setupFiles: './src/setupTests.ts',
     include: [...configDefaults.include],
     exclude: [...configDefaults.exclude, "packages/template/*"]
+  },
+  server: {
+    port: 3000
   }
 })
