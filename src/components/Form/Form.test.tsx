@@ -63,18 +63,4 @@ describe('<Form /> | Integration', () => {
 
     expect(submitBtn).toBeDisabled()
   })
-
-  it('should activated button when email and password is valid', async () => {
-    userEvent.setup()
-
-    const submitBtn = screen.getByRole('button', { name: 'Sign In' })
-
-    const emailInput = screen.getByLabelText('Email')
-    const passInput = screen.getByLabelText('Password')
-
-    await userEvent.type(emailInput, VALID_EMAIL)
-    await userEvent.type(passInput, VALID_PASSWORD)
-
-    expect(submitBtn).not.toBeDisabled()
-  })
 })
