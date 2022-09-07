@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Input } from '../'
 
 export const Form = (): JSX.Element => {
   const [emailInput, setEmailInput] = useState('')
   const [passInput, setPassInput] = useState('')
   const [btnDisabled, setBtnDisable] = useState(true)
+
+  const navigate = useNavigate()
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /\S+@\S+\.\S+/i
@@ -13,6 +16,11 @@ export const Form = (): JSX.Element => {
 
   const validatePass = (pass: string): boolean => pass.length >= 6
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault()
+    navigate('/wallet')
+  }
+
   useEffect(() => {
     const emailIsValid = validateEmail(emailInput)
     const passIsValid = validatePass(passInput)
@@ -20,7 +28,7 @@ export const Form = (): JSX.Element => {
   }, [emailInput, passInput])
 
   return (
-    <form>
+    <form onSubmit={(e) => handleSubmit(e)}>
       <h1>SING IN</h1>
       <Input
         name="Email"
