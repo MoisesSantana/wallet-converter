@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { Input } from '../'
+import { signIn } from '../../redux/user.slice'
 
 export const Form = (): JSX.Element => {
   const [emailInput, setEmailInput] = useState('')
@@ -8,6 +10,7 @@ export const Form = (): JSX.Element => {
   const [btnDisabled, setBtnDisable] = useState(true)
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /\S+@\S+\.\S+/i
@@ -18,6 +21,7 @@ export const Form = (): JSX.Element => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
+    dispatch(signIn(emailInput))
     navigate('/wallet')
   }
 

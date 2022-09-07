@@ -2,6 +2,8 @@ import { Form } from './Form'
 import { describe, expect, it, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { Provider } from 'react-redux'
+import { store } from '../../redux/store'
 import {
   INVALID_PASSWORD,
   INVALID_EMAIL,
@@ -12,7 +14,13 @@ import { MemoryRouter } from 'react-router-dom'
 
 describe('<Form /> | Integration', () => {
   beforeEach(() => {
-    render(<MemoryRouter><Form /></MemoryRouter>)
+    render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <Form />
+        </Provider>
+      </MemoryRouter>
+    )
   })
 
   it('should display a form title', () => {
