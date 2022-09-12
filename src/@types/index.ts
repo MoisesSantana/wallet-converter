@@ -5,3 +5,9 @@ export interface IInputProps {
   inputState: string
   setInputState: Dispatch<SetStateAction<string>>
 }
+
+export interface IReduxState {
+  user: {
+    email: string
+  }
+}
