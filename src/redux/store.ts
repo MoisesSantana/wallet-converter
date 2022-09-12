@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
-import user from './user.slice'
+import createSagaMiddleware from 'redux-saga'
+import user from './ducks/user/user.reducer'
+import wallet from './ducks/wallet/wallet.reducer'
+import { walletSaga } from './ducks/wallet/wallet.saga'
+
+const saga = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: {
-    user
-    // wallet
-  }
+    user,
+    wallet
+  },
+  middleware: [saga]
 })
+
+saga.run(walletSaga)
