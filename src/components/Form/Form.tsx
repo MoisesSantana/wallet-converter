@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Input } from '../'
-import { signIn } from '../../redux/user.slice'
+import { signIn } from '../../redux/ducks/user/user.reducer'
 
 export const Form = (): JSX.Element => {
   const [emailInput, setEmailInput] = useState('')

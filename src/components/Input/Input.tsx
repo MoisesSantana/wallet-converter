@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IInputProps } from '../@types'
+import { IInputProps } from '../../@types'
 
 export const Input = ({
   name,
