@@ -1,11 +1,19 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, CallEffect, put, PutEffect, takeEvery } from 'redux-saga/effects'
+import { IApiResult } from '../../../@types'
 import { api } from '../../../services/api'
 import { getCurrencies } from './wallet.reducer'
 
-function * getCurrenciesFetch (): Generator {
+const filterCurrencies = ({ data }: IApiResult): string[] => {
+  const keys = Object.keys(data)
+  return keys
+}
+
+function * getCurrenciesFetch ():
+Generator<CallEffect | PutEffect, void, IApiResult> {
   try {
     const response = yield call(api.get, '/all')
-    yield put(getCurrencies(response))
+    const currencies = filterCurrencies(response)
+    yield put(getCurrencies(currencies))
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message)
@@ -15,7 +23,5 @@ function * getCurrenciesFetch (): Generator {
 }
 
 export function * walletSaga (): Generator {
-  console.log('oi')
-
   yield takeEvery('wallet/quotesFetch', getCurrenciesFetch)
 }

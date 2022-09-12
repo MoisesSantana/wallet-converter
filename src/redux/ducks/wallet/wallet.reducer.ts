@@ -13,7 +13,7 @@ export const userReducer = createSlice({
       state.loading = true
     },
     getCurrencies (state, action) {
-      state.currencies = action.payload.data
+      state.currencies = action.payload
       state.loading = false
     }
   }
