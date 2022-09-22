@@ -10,6 +10,9 @@ export interface IReduxState {
   user: {
     email: string
   }
+  wallet: {
+    currencies: string[]
+  }
 }
 
 export interface IApiResult {
