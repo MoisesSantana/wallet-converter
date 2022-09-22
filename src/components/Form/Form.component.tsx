@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { Input } from '../'
 import { signIn } from '../../redux/ducks/user/user.reducer'
+import { Container } from './Form.style'
 
 export const Form = (): JSX.Element => {
   const [emailInput, setEmailInput] = useState('')
@@ -32,24 +33,26 @@ export const Form = (): JSX.Element => {
   }, [emailInput, passInput])
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)}>
+    <Container onSubmit={(e) => handleSubmit(e)}>
       <h1>SING IN</h1>
-      <Input
-        name="Email"
-        inputState={emailInput}
-        setInputState={setEmailInput}
-      />
-      <Input
-        name="Password"
-        inputState={passInput}
-        setInputState={setPassInput}
-      />
+      <div>
+        <Input
+          name="Email"
+          inputState={emailInput}
+          setInputState={setEmailInput}
+        />
+        <Input
+          name="Password"
+          inputState={passInput}
+          setInputState={setPassInput}
+        />
+      </div>
       <button
         type="submit"
         disabled={btnDisabled}
       >
         Sign In
       </button>
-    </form>
+    </Container>
   )
 }
