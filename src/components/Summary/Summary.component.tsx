@@ -1,7 +1,9 @@
 import { Container, SummaryCard } from './Summary.style'
 import ArrowCircleUpRoundedIcon from '@mui/icons-material/ArrowCircleUpRounded'
-import ArrowCircleDownRoundedIcon from '@mui/icons-material/ArrowCircleDownRounded'
-import MonetizationOnRoundedIcon from '@mui/icons-material/MonetizationOnRounded'
+import ArrowCircleDownRoundedIcon
+  from '@mui/icons-material/ArrowCircleDownRounded'
+import MonetizationOnRoundedIcon
+  from '@mui/icons-material/MonetizationOnRounded'
 
 export const Summary = (): JSX.Element => {
   return (
