@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import { IInputProps } from '../../@types'
+import { Container } from './Input.style'
+import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded'
+import VisibilityRoundedIcon from '@mui/icons-material/VisibilityRounded'
 
 export const Input = ({
   name,
@@ -14,7 +17,7 @@ export const Input = ({
   }
 
   return (
-    <label htmlFor={name}>
+    <Container htmlFor={name}>
         {name}
         <input
           type={name === 'Email' ? 'text' : passType}
@@ -23,14 +26,33 @@ export const Input = ({
           value={inputState}
           onChange={({ target }) => setInputState(target.value)}
         />
-        {name === 'Password' && (
+        {/* {name === 'Password' && (
           <button
             type="button"
             onClick={() => handlePassType()}
           >
             {passType === 'password' ? 'view' : 'hidden'}
           </button>
+        )} */}
+        {name === 'Password' && (
+          <>
+            {
+              passType === 'password'
+                ? (
+                <VisibilityRoundedIcon
+                  className="view-pass"
+                  onClick={() => handlePassType()}
+                />
+                  )
+                : (
+                <VisibilityOffRoundedIcon
+                  className="view-pass"
+                  onClick={() => handlePassType()}
+                />
+                  )
+            }
+          </>
         )}
-      </label>
+      </Container>
   )
 }
