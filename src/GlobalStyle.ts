@@ -2,15 +2,21 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --pri-text: #eceee1;
-    --sec-text: #DF0D25;
+    --white: #f9f9f9;
 
-    --pri-background: linear-gradient(149deg, rgba(10,10,10,1) 0%, rgba(24,24,24,1) 100%);
-    --sec-background: #DF0D25;
+    --blue: #2795C7;
+    --blue-light: #0BC6E3;
 
-    --blue: #018FF6;
-    --green: #22DA6E;
-    --red: #EF5350;
+    --green: #1A7F00;
+    --green-light: #22DA6E;
+
+    --red: #DF0D25;
+    --red-light: #EF5350;
+
+    --black: #111111;
+    --black-light: #282828;
+
+    --radius: 0.25rem;
   }
 
   * {
@@ -30,9 +36,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: var(--pri-background);
+    background: var(--black);
     -webkit-font-smoothing: antialiased;
-    color: var(--pri-text);
+    color: var(--white);
   }
 
   body, input, button, textarea {
@@ -45,6 +51,13 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     cursor: pointer;
+    border: none;
+    border-radius: var(--radius);
+    transition: 0.3s;
+
+    &:hover {
+      filter: brightness(0.9);
+    }
   }
 
   [disabled] {
